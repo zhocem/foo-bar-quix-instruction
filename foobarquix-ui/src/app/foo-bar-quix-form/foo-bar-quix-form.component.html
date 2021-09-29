@@ -1,3 +1,15 @@
 <div class="container"> 
-    To Be Completed
+    <form [formGroup]="foobarquixForm" (ngSubmit)="submitNumber(foobarquixForm.value)" class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Number to convert</mat-label>
+            <input matInput type="text" id="inputNumber" formControlName="inputNumber" placeholder="inputNumber" required>
+            <mat-error *ngIf="!foobarquixForm.controls['inputNumber'].valid && foobarquixForm.controls['inputNumber'].touched">
+                {{ getErrorInput() }}
+              </mat-error>
+          </mat-form-field>
+
+          <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!foobarquixForm.valid">Submit Form</button>
+          </div>
+    </form>
 </div>

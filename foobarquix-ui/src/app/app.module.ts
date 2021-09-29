@@ -10,6 +10,10 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FrontEndInstructionComponent } from './front-end-instruction/front-end-instruction.component';
 import { BackEndInstructionComponent } from './back-end-instruction/back-end-instruction.component';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -17,20 +21,25 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     FooBarQuixFormComponent,
     FooBarQuixComponent,
     HomeComponent,
-    NavBarComponent, 
+    NavBarComponent,
     FrontEndInstructionComponent,
-    BackEndInstructionComponent
+    BackEndInstructionComponent,
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
-    ])
+      { path: 'home', component: HomeComponent },
+      { path: 'foo-bar-quix', component: FooBarQuixComponent },
+    ]),
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatButtonModule,
   ],
-  providers: [
-    { provide: 'SERVER_URL', useValue: 'http://localhost:8080' }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:8080' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

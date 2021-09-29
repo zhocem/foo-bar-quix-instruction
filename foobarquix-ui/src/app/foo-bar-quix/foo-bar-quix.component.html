@@ -1,6 +1,15 @@
 <div>
-<div class="container">
-    <h2>Already converted values : </h2>
-</div>
-<app-foo-bar-quix-form (submitNumberOutput)="convertNumber($event)"></app-foo-bar-quix-form>
+  <div class="container">
+    <h2>Already converted values :</h2>
+
+    <mat-list role="list" *ngFor="let item of results">
+      <mat-list-item role="listitem">
+        {{ item.numberToConvert }} and the result is {{ item.result }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <hr />
+  <app-foo-bar-quix-form
+    (submitNumberOutput)="convertNumber($event)"
+  ></app-foo-bar-quix-form>
 </div>
